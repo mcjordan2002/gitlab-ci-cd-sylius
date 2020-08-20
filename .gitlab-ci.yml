@@ -4,9 +4,13 @@ stages:
   - checking
   - testing
 
-  image: edbizarro/gitlab-ci-pipeline-php:7.4-alpine
+image: edbizarro/gitlab-ci-pipeline-php:7.4-alpine
 
-  variables:
+variables:
   MYSQL_ROOT_PASSWORD: your-root-password
   MYSQL_USER: your-mysql-user
   DATABASE_URL: 'mysql://your-mysql-user:your-mysql-user-password@your-db-ip/sylius_%kernel.environment%'
+
+  COMPOSER_MEMORY_LIMIT: -1
+
+  PHP_DATE_TIMEZONE: (Your php timezone) # ex:Africa/Porto-Novo
