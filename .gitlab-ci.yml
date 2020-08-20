@@ -4,6 +4,8 @@ stages:
   - checking
   - testing
 
+# This image was made for Laravel but works for Sylius as well
+# https://github.com/edbizarro/gitlab-ci-pipeline-php
 image: edbizarro/gitlab-ci-pipeline-php:7.4-alpine
 
 variables:
