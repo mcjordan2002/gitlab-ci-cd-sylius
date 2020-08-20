@@ -58,3 +58,11 @@ yarn:
   cache:
     paths:
       - node_modules/
+
+database-setting:
+  stage: building
+  script:
+    #- APP_DEBUG=1 bin/console doctrine:database:create -vvv
+    #- bin/console cache:clear --no-warmup
+    #- bin/console doctrine:migrations:migrate --no-interaction -vvv
+    - echo "OK"
