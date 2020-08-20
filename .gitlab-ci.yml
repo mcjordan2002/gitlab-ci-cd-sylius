@@ -12,5 +12,4 @@ variables:
   DATABASE_URL: 'mysql://your-mysql-user:your-mysql-user-password@your-db-ip/sylius_%kernel.environment%'
 
   COMPOSER_MEMORY_LIMIT: -1
-
   PHP_DATE_TIMEZONE: (Your php timezone) # ex:Africa/Porto-Novo
