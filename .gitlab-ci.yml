@@ -3,3 +3,5 @@ stages:
   - building
   - checking
   - testing
+
+  image: edbizarro/gitlab-ci-pipeline-php:7.4-alpine
