@@ -13,7 +13,7 @@ variables:
   MYSQL_USER: your-mysql-user
   DATABASE_URL: 'mysql://your-mysql-user:your-mysql-user-password@your-db-ip/sylius_%kernel.environment%'
 
-  COMPOSER_MEMORY_LIMIT: -1
+  COMPOSER_MEMORY_LIMIT: -1 # to avoid timeout with composer command
 
   PHP_DATE_TIMEZONE: (Your php timezone) # ex:Africa/Porto-Novo
 
@@ -32,3 +32,17 @@ composer:
   services:
     - mysql:5.7
     - memcached
+
+before_script:
+  - sudo yarn config set cache-folder .yarn
+  - mkdir -p public/media/cache && mkdir -p public/media/image # Avoiding error: public/media/image folder not found
+script:
+  - php -v
+  - composer install --prefer-dist --no-ansi --no-scripts --no-interaction --no-progress --no-suggest
+artifacts:
+  paths:
+    - vendor/
+    - .env
+cache:
+  paths:
+    - vendor/
