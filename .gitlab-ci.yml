@@ -25,3 +25,10 @@ cache:
     - public
     - .yarn
     - .env
+
+composer:
+  stage: preparation
+  allow_failure: false # Its there for easy switching
+  services:
+    - mysql:5.7
+    - memcached
