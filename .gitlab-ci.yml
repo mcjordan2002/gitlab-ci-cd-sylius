@@ -66,3 +66,16 @@ database-setting:
     #- bin/console cache:clear --no-warmup
     #- bin/console doctrine:migrations:migrate --no-interaction -vvv
     - echo "OK"
+
+build-assets:
+  stage: building
+  dependencies:
+    - composer
+    - yarn
+  script:
+    - bin/console sylius:theme:assets:install public
+    - bin/console sylius:install:assets
+    - yarn build
+    - yarn encore dev
+    - yarn gulp
+    - composer require server --dev --prefer-dist --no-ansi --no-scripts --no-interaction --no-progress --no-suggest
