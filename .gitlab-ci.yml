@@ -98,3 +98,11 @@ composer-validation:
       artifacts: true
   script:
     - composer validate --strict
+
+phpstan:
+  stage: testing
+  needs:
+    - job: build-assets
+      artifacts: true
+  script:
+    - vendor/bin/phpstan analyse src --level=1
