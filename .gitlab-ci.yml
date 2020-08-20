@@ -79,3 +79,14 @@ build-assets:
     - yarn encore dev
     - yarn gulp
     - composer require server --dev --prefer-dist --no-ansi --no-scripts --no-interaction --no-progress --no-suggest
+
+phpcs-phpspec:
+  stage: checking
+  needs:
+    - job: build-assets
+      artifacts: true
+  script:
+    # Running checks
+    - vendor/bin/phpcs -n --standard=PSR2 src
+    #- vendor/bin/security-checker security:chec
+    - vendor/bin/phpspec run --no-interaction -f dot
