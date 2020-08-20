@@ -5,3 +5,8 @@ stages:
   - testing
 
   image: edbizarro/gitlab-ci-pipeline-php:7.4-alpine
+
+  variables:
+  MYSQL_ROOT_PASSWORD: your-root-password
+  MYSQL_USER: your-mysql-user
+  DATABASE_URL: 'mysql://your-mysql-user:your-mysql-user-password@your-db-ip/sylius_%kernel.environment%'
