@@ -90,3 +90,11 @@ phpcs-phpspec:
     - vendor/bin/phpcs -n --standard=PSR2 src
     #- vendor/bin/security-checker security:chec
     - vendor/bin/phpspec run --no-interaction -f dot
+
+composer-validation:
+  stage: checking
+  needs:
+    - job: build-assets
+      artifacts: true
+  script:
+    - composer validate --strict
