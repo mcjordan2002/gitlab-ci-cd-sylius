@@ -1,1 +1,5 @@
-ok
+stages:
+  - preparation
+  - building
+  - checking
+  - testing
